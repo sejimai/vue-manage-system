@@ -12,7 +12,7 @@
         <el-input
           @keyup.enter.native="handleSearch"
           v-model="searchContent"
-          placeholder="用户名或ID"
+          placeholder="设备ID"
           class="handle-input mr10"
         ></el-input>
         <el-button class="primary" type="primary" icon="el-icon-refresh" @click="handleRefresh"
@@ -23,7 +23,7 @@
         >
       </div>
       <el-table
-        :data="userList"
+        :data="deviceList"
         border
         class="table"
         ref="multipleTable"
@@ -125,10 +125,10 @@ export default {
   data() {
     return {
       searchContent: "",
-      userList: [],
+      deviceList: [],
       currentPage: 1,
       pageTotal: 0,
-      currentMode: "AllUserList",
+      currentMode: "AllDeviceList",
     };
   },
   created() {
