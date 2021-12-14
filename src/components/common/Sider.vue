@@ -13,9 +13,9 @@
       <template v-for="item in items">
         <template v-if="item.subs">
           <el-submenu :index="item.index" :key="item.index">
-            <template>
+            <template slot="title">
               <i :class="item.icon"></i>
-              <span class="title">{{ item.title }}</span>
+              <span slot="title">{{ item.title }}</span>
             </template>
             <template v-for="subItem in item.subs">
               <el-submenu
@@ -23,7 +23,7 @@
                 :index="subItem.index"
                 :key="subItem.index"
               >
-                <template>{{ subItem.title }}</template>
+                <template slot="title">{{ subItem.title }}</template>
                 <el-menu-item
                   v-for="(threeItem, i) in subItem.subs"
                   :key="i"
@@ -43,7 +43,7 @@
         <template v-else>
           <el-menu-item :index="item.index" :key="item.index">
             <i :class="item.icon"></i>
-            <span class="title">{{ item.title }}</span>
+            <span>{{ item.title }}</span>
           </el-menu-item>
         </template>
       </template>
@@ -59,15 +59,44 @@ export default {
       collapse: true,
       items: [
         {
-          icon: "el-icon-user",
+          icon: "el-icon-s-home",
           index: "Home",
           title: "主页",
         },
         {
-          icon: "el-icon-user",
-          index: "AdminAllDevice",
+          icon: "el-icon-s-platform",
+          index: "DeviceManage",
           title: "设备管理",
-        }
+          subs: [
+            {
+              index: "AllDevice",
+              title: "设备列表",
+            },
+            {
+              index: "AddDevice",
+              title: "增加设备",
+            },
+            {
+              index: "LocateDevice",
+              title: "设备定位查询",
+            },
+          ],
+        },
+        {
+          icon: "el-icon-user",
+          index: "UserManage",
+          title: "用户管理",
+          subs: [
+            {
+              index: "AllUser",
+              title: "用户列表",
+            },
+            {
+              index: "UserOperationList",
+              title: "用户操作记录",
+            },
+          ],
+        },
       ],
     };
   },
@@ -103,9 +132,5 @@ export default {
 }
 .sidebar > ul {
   height: 100%;
-}
-.title {
-  font-size: 16px;
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
 </style>

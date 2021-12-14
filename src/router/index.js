@@ -24,11 +24,43 @@ export default new Router({
                     },
                 },
                 {
-                    path: '/AdminAllDevice',
+                    path: '/AllDevice',
                     component: () =>
-                        import ( /* webpackChunkName: "dashboard" */ '../components/page/AdminAllDevice.vue'),
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/AllDevice.vue'),
                     meta: {
-                        title: '设备管理',
+                        title: '设备列表',
+                    },
+                },
+                {
+                    path: '/AddDevice',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/AddDevice.vue'),
+                    meta: {
+                        title: '增加设备',
+                    },
+                },
+                {
+                    path: '/LocateDevice',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/LocateDevice.vue'),
+                    meta: {
+                        title: '设备定位查询',
+                    },
+                },
+                {
+                    path: '/AllUser',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/AllUser.vue'),
+                    meta: {
+                        title: '用户列表',
+                    },
+                },
+                {
+                    path: '/UserOperationList',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/UserOperationList.vue'),
+                    meta: {
+                        title: '用户操作记录',
                     },
                 },
             ],
