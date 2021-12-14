@@ -63,6 +63,11 @@ export default {
           index: "Home",
           title: "主页",
         },
+        {
+          icon: "el-icon-user",
+          index: "AdminAllDevice",
+          title: "设备管理",
+        }
       ],
     };
   },

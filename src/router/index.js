@@ -16,13 +16,22 @@ export default new Router({
                 title: '自述文件',
             },
             children: [{
-                path: '/Home',
-                component: () =>
-                    import ( /* webpackChunkName: "dashboard" */ '../components/page/Home.vue'),
-                meta: {
-                    title: '主页',
+                    path: '/Home',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/Home.vue'),
+                    meta: {
+                        title: '主页',
+                    },
                 },
-            }, ],
+                {
+                    path: '/AdminAllDevice',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/AdminAllDevice.vue'),
+                    meta: {
+                        title: '设备管理',
+                    },
+                },
+            ],
         },
         {
             path: '*',
