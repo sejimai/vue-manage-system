@@ -24,7 +24,7 @@
       </div>
       <el-table
         :data="deviceList"
-        border=""
+        border
         class="table"
         ref="multipleTable"
         header-cell-class-name="table-header"
