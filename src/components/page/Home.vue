@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 .charts-container {
-  width: 60%;
+  width: 40%;
   float: left;
 }
 .table-container {
