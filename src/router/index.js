@@ -66,6 +66,14 @@ export default new Router({
             ],
         },
         {
+            path: '/login',
+            component: () =>
+                import ( /* webpackChunkName: "dashboard" */ '../components/page/Login.vue'),
+            meta: {
+                title: '登录',
+            },
+        },
+        {
             path: '*',
             redirect: '/',
         }
