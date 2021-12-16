@@ -59,6 +59,9 @@ export default {
     submitForm() {
       var that = this;
       this.GLOBAL.token = "login";
+      if (this.param.username === "admin") {
+        this.GLOBAL.isAdmin = true;
+      }
       that.$message({
         message: "登录成功",
         type: "success",

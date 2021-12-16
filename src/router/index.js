@@ -63,6 +63,38 @@ export default new Router({
                         title: '用户操作记录',
                     },
                 },
+                {
+                    path: '/UserHome',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/UserHome.vue'),
+                    meta: {
+                        title: '我的主页',
+                    },
+                },
+                {
+                    path: '/DeviceManage',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/DeviceManage.vue'),
+                    meta: {
+                        title: '设备管理',
+                    },
+                },
+                {
+                    path: '/RentDevice',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/RentDevice.vue'),
+                    meta: {
+                        title: '租赁设备',
+                    },
+                },
+                {
+                    path: '/StartDevice',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/StartDevice.vue'),
+                    meta: {
+                        title: '启用设备',
+                    },
+                },
             ],
         },
         {

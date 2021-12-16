@@ -57,7 +57,8 @@ export default {
   data() {
     return {
       collapse: true,
-      items: [
+      items : [],
+      adminItems: [
         {
           icon: "el-icon-s-home",
           index: "Home",
@@ -98,6 +99,28 @@ export default {
           ],
         },
       ],
+      userItems: [
+        {
+          icon: "el-icon-s-home",
+          index: "UserHome",
+          title: "我的主页",
+        },
+        {
+          icon: "el-icon-s-platform",
+          index: "DeviceManage",
+          title: "设备管理",
+        },
+        {
+          icon: "el-icon-shopping-cart-full",
+          index: "RentDevice",
+          title: "设备租赁",
+        },
+        {
+          icon: "el-icon-circle-check",
+          index: "StartDevice",
+          title: "启用设备",
+        },
+      ],
     };
   },
   computed: {
@@ -106,6 +129,11 @@ export default {
     },
   },
   created() {
+    if (this.GLOBAL.isAdmin === true) {
+      this.items = this.adminItems;
+    } else {
+      this.items = this.userItems;
+    }
     // 通过 Event Bus 进行组件间通信，来折叠侧边栏
     bus.$on("collapse", (msg) => {
       this.collapse = msg;
