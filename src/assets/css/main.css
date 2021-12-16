@@ -186,3 +186,18 @@ a {
     color: #fff;
     background: #409eff;
 }
+
+
+/*common color class*/
+
+.red {
+    color: #ff0000;
+}
+
+.green {
+    color: #00ff00;
+}
+
+.blue {
+    color: #0000ff;
+}

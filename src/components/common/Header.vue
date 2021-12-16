@@ -8,6 +8,14 @@
     <div class="logo">管理系统</div>
     <div class="header-right">
       <div class="header-user-con">
+        <!-- 退出 -->
+        <div class="btn-log-out" @click="handleLogout">
+          <i class="el-icon-switch-button"></i>
+        </div>
+      </div>
+    </div>
+    <div class="header-right-2">
+      <div class="header-user-con">
         <!-- 全屏显示 -->
         <div class="btn-fullscreen" @click="handleFullScreen">
           <i class="el-icon-rank"></i>
@@ -65,6 +73,16 @@ export default {
       }
       this.fullscreen = !this.fullscreen;
     },
+    handleLogout() {
+      var that = this;
+      this.GLOBAL.token = "";
+      this.GLOBAL.isAdmin = false;
+      that.$message({
+        message: "已退出登录",
+        type: "success",
+      });
+      this.$router.replace("/login");
+    }
   },
   mounted() {
     if (document.body.clientWidth < 1500) {
@@ -95,7 +113,11 @@ export default {
 }
 .header-right {
   float: right;
-  padding-right: 50px;
+  padding-right: 40px;
+}
+.header-right-2 {
+  float: right;
+  padding-right: 40px;
 }
 .header-user-con {
   display: flex;
@@ -104,6 +126,10 @@ export default {
 }
 .btn-fullscreen {
   transform: rotate(45deg);
+  margin-right: 5px;
+  font-size: 24px;
+}
+.btn-log-out {
   margin-right: 5px;
   font-size: 24px;
 }

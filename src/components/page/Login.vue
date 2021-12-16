@@ -11,7 +11,11 @@
       >
         <el-form-item prop="username">
           <el-input v-model="param.username" placeholder="username">
-            <el-button class="primary" slot="prepend" icon="el-icon-lx-people"></el-button>
+            <el-button
+              class="primary"
+              slot="prepend"
+              icon="el-icon-lx-people"
+            ></el-button>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
@@ -21,11 +25,17 @@
             v-model="param.password"
             @keyup.enter.native="submitForm()"
           >
-            <el-button class="primary" slot="prepend" icon="el-icon-lx-lock"></el-button>
+            <el-button
+              class="primary"
+              slot="prepend"
+              icon="el-icon-lx-lock"
+            ></el-button>
           </el-input>
         </el-form-item>
         <div class="login-btn">
-          <el-button class="primary" type="primary" @click="submitForm()">登录</el-button>
+          <el-button class="primary" type="primary" @click="submitForm()"
+            >登录</el-button
+          >
         </div>
       </el-form>
     </div>
@@ -66,7 +76,11 @@ export default {
         message: "登录成功",
         type: "success",
       });
-      this.$router.replace("/");
+      if (this.param.username === "admin") {
+        this.$router.replace("/Home");
+      } else {
+        this.$router.replace("/UserHome");
+      }
     },
   },
 };
