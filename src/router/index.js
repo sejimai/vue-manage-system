@@ -106,6 +106,14 @@ export default new Router({
             },
         },
         {
+            path: '/register',
+            component: () =>
+                import ( /* webpackChunkName: "dashborad" */ '../components/page/Register.vue'),
+            meta: {
+                title: '注册',
+            }
+        },
+        {
             path: '*',
             redirect: '/',
         }

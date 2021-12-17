@@ -8,16 +8,25 @@
       </el-breadcrumb>
     </div>
     <div class="container">
-      
+      <div class="charts-container">
+        <deviceChart></deviceChart>
+        <userDeviceChart></userDeviceChart>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import deviceChart from "../common/DeviceChart.vue"
+import userDeviceChart from "../common/UserDeviceChart.vue"
 export default {
   data() {
     return {
     };
+  },
+  components: {
+    deviceChart,
+    userDeviceChart,
   },
   created() {
     this.getPage();
@@ -29,4 +38,11 @@ export default {
 </script>
 
 <style scoped>
+.charts-container {
+  width: 40%;
+  float: left;
+}
+.container {
+  height: 500px;
+}
 </style>

@@ -36,6 +36,9 @@
           <el-button class="primary" type="primary" @click="submitForm()"
             >登录</el-button
           >
+          <el-button class="primary" type="primary" @click="handleRegister()"
+            >注册</el-button
+          >
         </div>
       </el-form>
     </div>
@@ -82,6 +85,9 @@ export default {
         this.$router.replace("/UserHome");
       }
     },
+    handleRegister() {
+      this.$router.replace("/register");
+    },
   },
 };
 </script>
@@ -117,6 +123,7 @@ export default {
 }
 .login-btn {
   text-align: center;
+  display: flex;
 }
 .login-btn button {
   width: 100%;

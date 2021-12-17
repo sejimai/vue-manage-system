@@ -30,7 +30,9 @@ const i18n = new VueI18n({
 
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
-    if (globalData.token == '' && to.path !== '/login') {
+    if (globalData.token == '' &&
+        to.path !== '/login' &&
+        to.path !== '/register') {
         next('/login');
     } else {
         next();

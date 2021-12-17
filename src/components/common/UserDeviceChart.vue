@@ -1,10 +1,10 @@
 <template>
   <div class="ibox">
-    <div class="ibox-title">系统设备使用情况</div>
+    <div class="ibox-title">我的设备使用情况</div>
     <div class="ibox-content">
       <div
         class="demo-chart liquidfill-chart"
-        id="device-chart"
+        id="user-device-chart"
       ></div>
       <div class="echarts-font echarts-font-padding">
         <ul>
@@ -13,7 +13,7 @@
             <span> {{ totalDeviceNum }} </span>
           </li>
           <li>
-            已用设备数
+            已启用设备数
             <span> {{ usedDeviceNum}} </span>
           </li>
         </ul>
@@ -28,9 +28,7 @@ export default {
   data() {
     return {
       usedDeviceNum: 8,
-      totalDeviceNum: 18,
-      enableUserNum: 20,
-      totalUserNum: 20,
+      totalDeviceNum: 8,
     };
   },
   mounted() {
@@ -38,13 +36,13 @@ export default {
   },
   methods: {
     initChart() {
-      let getChart = echarts.init(document.getElementById("device-chart"));
+      let getChart = echarts.init(document.getElementById("user-device-chart"));
       var option = {
         tooltip: {
           show: true,
           trigger: "item",
           formatter:
-            "可用：" + String(this.totalDeviceNum - this.usedDeviceNum),
+            "未启用：" + String(this.totalDeviceNum - this.usedDeviceNum),
         },
         series: [
           {
@@ -119,7 +117,7 @@ export default {
 }
 .demo-chart {
   height: 160px;
-  padding: 0;
+  padding: 0px;
 }
 .liquidfill-chart {
   width: 200px;
