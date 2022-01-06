@@ -125,9 +125,90 @@ export default {
   data() {
     return {
       searchContent: "",
-      deviceList: [],
+      deviceList: [
+        {
+          deviceId: "1",
+          mac: "192.168.0.155",
+          type: "LED",
+          picture: "F:\workspace\VueProject\vue-managee-system\src\assets\picture\background_image.jpg",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "2",
+          mac: "192.168.0.156",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "3",
+          mac: "192.168.0.157",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "4",
+          mac: "192.168.0.158",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "5",
+          mac: "192.168.0.159",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "6",
+          mac: "192.168.0.160",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "7",
+          mac: "192.168.0.161",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "8",
+          mac: "192.168.0.162",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "9",
+          mac: "192.168.0.163",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "10",
+          mac: "192.168.0.164",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+      ],
       currentPage: 1,
-      pageTotal: 0,
+      pageTotal: 10,
       currentMode: "AllDeviceList",
     };
   },
@@ -138,8 +219,51 @@ export default {
     getPage() {},
     handleSearch() {},
     handleRefresh() {},
-    handleDisable() {},
-    handleDelete() {},
+    handleDisable(index, row) {
+      var that = this;
+
+      if (!that.deviceList[index].userIsdisable) {
+        this.$confirm("确定要禁用该设备吗？", "提示", {
+          type: "warning",
+        })
+          .then(() => {
+            that.deviceList[index].userIsdisable = true;
+            Vue.set(that.deviceList);
+            that.$message({
+              message: "禁用成功",
+              type: "success",
+            });
+          });
+      } else {
+        that.deviceList[index].userIsdisable = false;
+        Vue.set(that.deviceList);
+        that.$message({
+          message: "启用成功",
+          type: "success",
+        });
+      }
+    },
+    handleDelete(index, row) {
+      var that = this;
+
+      this.$confirm("确定要删除该设备吗？", "提示", {
+        type: "warning",
+      })
+      .then(() => {
+        that.deviceList.splice(index, 1);
+        Vue.set(that.deviceList);
+        that.$message({
+          message: "删除成功",
+          type: "success",
+        })
+      })
+      .catch(() => {
+        that.$message({
+          message: "删除失败，请重试",
+          type: "error",
+        })
+      });
+    },
     handlePageChange() {},
     handlePagePrev() {},
     handlePageNext() {},

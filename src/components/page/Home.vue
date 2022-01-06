@@ -40,7 +40,38 @@ import Vue from "vue";
 export default {
   data() {
     return {
-      logList: [],
+      logList: [
+        {
+          log: "管理员 admin 退出系统",
+        },
+        {
+          log: "管理员 admin 进入系统",
+        },
+        {
+          log: "用户 test 退出系统",
+        },
+        {
+          log: "用户 test 进入系统",
+        },
+        {
+          log: "管理员 admin 退出系统",
+        },
+        {
+          log: "管理员 admin 进入系统",
+        },
+        {
+          log: "用户 test 退出系统",
+        },
+        {
+          log: "用户 test 进入系统",
+        },
+        {
+          log: "管理员 admin 退出系统",
+        },
+        {
+          log: "管理员 admin 进入系统",
+        },
+      ],
     };
   },
   components: {

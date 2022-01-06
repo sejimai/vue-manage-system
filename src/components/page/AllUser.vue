@@ -101,9 +101,35 @@ export default {
   data() {
     return {
       searchContent: "",
-      userList: [],
+      userList: [
+        {
+          userId: "CU12457",
+          userName: "user1",
+          userIsdisable: false,
+        },
+        {
+          userId: "Hk22278",
+          userName: "test",
+          userIsdisable: false,
+        },
+        {
+          userId: "OA45217",
+          userName: "helloworld",
+          userIsdisable: false,
+        },
+        {
+          userId: "MS48212",
+          userName: "nihao",
+          userIsdisable: false,
+        },
+        {
+          userId: "UD79134",
+          userName: "user2",
+          userIsdisable: false,
+        },
+      ],
       currentPage: 1,
-      pageTotal: 0,
+      pageTotal: 5,
       currentMode: "AllUserList", 
     };
   },
@@ -117,8 +143,51 @@ export default {
     handlePageChange() {},
     handlePagePrev() {},
     handlePageNext() {},
-    handleDisable() {},
-    handleDelete() {},
+    handleDisable(index, row) {
+      var that = this;
+
+      if (!that.userList[index].userIsdisable) {
+        this.$confirm("确定要禁用该用户吗？", "提示", {
+          type: "warning",
+        })
+          .then(() => {
+            that.userList[index].userIsdisable = true;
+            Vue.set(that.userList);
+            that.$message({
+              message: "禁用成功",
+              type: "success",
+            });
+          });
+      } else {
+        that.userList[index].userIsdisable = false;
+        Vue.set(that.userList);
+        that.$message({
+          message: "启用成功",
+          type: "success",
+        });
+      }
+    },
+    handleDelete(index, row) {
+      var that = this;
+
+      this.$confirm("确定要删除该用户吗？", "提示", {
+        type: "warning",
+      })
+      .then(() => {
+        that.userList.splice(index, 1);
+        Vue.set(that.userList);
+        that.$message({
+          message: "删除成功",
+          type: "success",
+        })
+      })
+      .catch(() => {
+        that.$message({
+          message: "删除失败，请重试",
+          type: "error",
+        })
+      });
+    },
   },
 };
 </script>

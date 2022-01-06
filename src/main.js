@@ -10,6 +10,7 @@ import './components/common/directives';
 import globalData from '@/api/global_data.js'
 import axios from '../node_modules/axios';
 import qs from '../node_modules/qs';
+import BaiduMap from 'vue-baidu-map';
 import * as echarts from 'echarts';
 import 'echarts-liquidfill'
 import 'element-plus/dist/index.css'
@@ -27,6 +28,10 @@ const i18n = new VueI18n({
     locale: 'zh',
     messages
 });
+Vue.use(BaiduMap, {
+    // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+    ak: 'KNpolXiaSqHw3CzMPWX0jH5GgyMf8cTD'
+})
 
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {

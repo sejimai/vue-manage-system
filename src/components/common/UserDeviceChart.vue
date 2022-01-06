@@ -27,8 +27,8 @@ import * as echarts from "echarts";
 export default {
   data() {
     return {
-      usedDeviceNum: 8,
-      totalDeviceNum: 8,
+      usedDeviceNum: 6,
+      totalDeviceNum: 6,
     };
   },
   mounted() {

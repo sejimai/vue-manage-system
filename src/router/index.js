@@ -95,6 +95,14 @@ export default new Router({
                         title: '启用设备',
                     },
                 },
+                {
+                    path: '/DeviceLocation1',
+                    component: () =>
+                        import ( /* webpackChunkName: "dashboard" */ '../components/page/DeviceLocation1.vue'),
+                    meta: {
+                        title: '设备定位',
+                    },
+                },
             ],
         },
         {

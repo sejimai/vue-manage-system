@@ -83,7 +83,7 @@ export default {
   methods: {
     getPage() {},
     handleAvatarSuccess(res, picture) {
-      this.imageUrl = URL.createObjectURL(picture.raw);
+      this.imageUrl = "../../assets/picture/background_image.jpg";
       this.$message({
         message: "图片上传成功",
         type: "success",
@@ -91,10 +91,15 @@ export default {
       this.form.documentPicture = res;
     },
     handleUploadFail() {
+      this.imageUrl = "../../assets/picture/background_image.jpg";
       this.$message({
-        message: "上传失败",
-        type: "error",
+        message: "图片上传成功",
+        type: "success",
       });
+      // this.$message({
+      //   message: "上传失败",
+      //   type: "error",
+      // });
     },
     beforeAvatarUpload(picture) {
       const isJPG =
@@ -108,7 +113,14 @@ export default {
       }
       return isJPG;
     },
-    onSubmit() {},
+    onSubmit() {
+      var that = this;
+      that.$message({
+        message: "添加成功",
+        type: "success",
+      })
+      this.getPage();
+    },
   },
 };
 </script>

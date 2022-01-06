@@ -27,10 +27,10 @@ import * as echarts from "echarts";
 export default {
   data() {
     return {
-      usedDeviceNum: 8,
-      totalDeviceNum: 18,
-      enableUserNum: 20,
-      totalUserNum: 20,
+      usedDeviceNum: 6,
+      totalDeviceNum: 10,
+      enableUserNum: 5,
+      totalUserNum: 5,
     };
   },
   mounted() {

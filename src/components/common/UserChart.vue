@@ -34,8 +34,8 @@
 export default {
   data() {
     return {
-      totalUserNum: 20,
-      enableUserNum: 20,
+      totalUserNum: 5,
+      enableUserNum: 5,
       disableUserNum: 0,
     };
   },

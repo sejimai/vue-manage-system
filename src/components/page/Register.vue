@@ -43,7 +43,7 @@
               <el-input
                 type="password"
                 placeholder="请输入确认密码"
-                v-model="param.password"
+                v-model="param.confirmPassword"
               >
                 <el-button
                   class="primary"
@@ -53,11 +53,13 @@
               </el-input>
             </el-form-item>
             <div class="register-btn">
-              <el-button
-                class="primary"
-                type="primary"
-                @click="submitForm()"
+              <el-button class="primary" type="primary" @click="submitForm()"
                 >注册</el-button
+              >
+            </div>
+            <div class="register-btn">
+              <el-button class="primary" type="primary" @click="returnForm()"
+                >返回</el-button
               >
             </div>
           </el-form>
@@ -81,30 +83,55 @@ export default {
           {
             required: true,
             message: "请输入用户名",
-            trigger: "blur"
+            trigger: "blur",
           },
         ],
         password: [
           {
             required: true,
             message: "请输入密码",
-            trigger: "blur"
+            trigger: "blur",
           },
         ],
         confirmPassword: [
           {
             required: true,
             message: "请输入确认密码",
-            trigger: "blur"
+            trigger: "blur",
           },
         ],
       },
-    }
+    };
   },
   methods: {
     submitForm() {
+      var that = this;
+      if (this.param.username === "") {
+        that.$message({
+          message: "用户名不能为空",
+          type: "warning",
+        });
+      } else if (this.param.password === "" || this.param.confirmPassword === "") {
+        that.$message({
+          message: "密码或确认密码不能为空",
+          type: "warning",
+        });
+      } else if (this.param.password !== this.param.confirmPassword) {
+        that.$message({
+          message: "密码和确认密码不一致",
+          type: "warning",
+        });
+      } else {
+        that.$message({
+          message: "注册成功",
+          type: "success",
+        });
+        this.$router.replace("/login");
+      }
+    },
+    returnForm() {
       this.$router.replace("/login");
-    }
+    },
   },
 };
 </script>

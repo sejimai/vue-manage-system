@@ -49,16 +49,10 @@
           <template slot-scope="scope">
             <el-button
               type="text"
-              icon="el-icon-circle-check"
+              icon="el-icon-location-outline"
               class="green"
               @click="handleLocate(scope.$index, scope.row)"
             >定位</el-button>
-            <el-button
-              type="text"
-              icon="el-icon-circle-check"
-              class="green"
-              @click="handleTrajectory(scope.$index, scope.row)"
-            >轨迹</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -86,9 +80,90 @@ export default {
   data() {
     return {
       searchContent: "",
-      deviceList: [],
+      deviceList: [
+        {
+          deviceId: "1",
+          mac: "192.168.0.155",
+          type: "LED",
+          picture: "F:\workspace\VueProject\vue-managee-system\src\assets\picture\background_image.jpg",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "2",
+          mac: "192.168.0.156",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "3",
+          mac: "192.168.0.157",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "4",
+          mac: "192.168.0.158",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "5",
+          mac: "192.168.0.159",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "6",
+          mac: "192.168.0.160",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "7",
+          mac: "192.168.0.161",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "8",
+          mac: "192.168.0.162",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "9",
+          mac: "192.168.0.163",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "10",
+          mac: "192.168.0.164",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+      ],
       currentPage: 1,
-      pageTotal: 0,
+      pageTotal: 10,
       currentMode: "AllDeviceList", 
     };
   },
@@ -102,7 +177,9 @@ export default {
     handlePageChange() {},
     handlePagePrev() {},
     handlePageNext() {},
-    handleLocate() {},
+    handleLocate(index, row) {
+      this.$router.replace("/DeviceLocation1");
+    },
     handleTrajectory() {},
   },
 };

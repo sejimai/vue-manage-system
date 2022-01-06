@@ -101,13 +101,47 @@
 </template>
 
 <script>
+import Vue from 'vue';
 export default {
   data() {
     return {
       searchContent: "",
-      deviceList: [],
+      deviceList: [
+        {
+          deviceId: "7",
+          mac: "192.168.0.161",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "8",
+          mac: "192.168.0.162",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "9",
+          mac: "192.168.0.163",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+        {
+          deviceId: "10",
+          mac: "192.168.0.164",
+          type: "LED",
+          picture: "",
+          time: "2021/10/12",
+          userIsdisable: false,
+        },
+      ],
       currentPage: 1,
-      pageTotal: 0,
+      pageTotal: 4,
       currentMode: "AllDeviceList",
     };
   },
@@ -123,6 +157,27 @@ export default {
     handlePageChange() {},
     handlePagePrev() {},
     handlePageNext() {},
+    handleRent(index, row) {
+      var that = this;
+
+      this.$confirm("确定要租赁该设备吗？", "提示", {
+        type: "warning",
+      })
+      .then(() => {
+        that.deviceList.splice(index, 1);
+        Vue.set(that.deviceList);
+        that.$message({
+          message: "租赁成功",
+          type: "success",
+        })
+      })
+      .catch(() => {
+        that.$message({
+          message: "租赁失败，请重试",
+          type: "error",
+        })
+      });
+    },
   },
 };
 </script>
